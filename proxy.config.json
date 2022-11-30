@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "tarjet":"api-biblioteca-production.up.railway.app",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

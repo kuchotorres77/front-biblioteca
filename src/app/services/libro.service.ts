@@ -7,7 +7,8 @@ import { Libro } from '../model/libro';
   providedIn: 'root'
 })
 export class LibroService {
-  URL = "http://localhost:8080/api/"
+  // URL = "http://localhost:8080/api/"
+  URL = "api-biblioteca-production.up.railway.app"
   constructor(private httpClient: HttpClient) { }
   //create
   public save(libro: Libro):Observable<any>{
