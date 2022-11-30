@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+body {
+  /* background-image: url("https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1600"); */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.493), rgba(122, 122, 122, 0.144)), url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1600')
+}

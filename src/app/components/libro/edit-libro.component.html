@@ -1,0 +1,51 @@
+<div class="card m-5" *ngIf="libro">
+  <div class="card-header card-header-warning">
+    <h2 class="card-title text-center titulo">Editar Libro</h2>
+  </div>
+  <form (ngSubmit)="onUpdate()" #f="ngForm">
+    <div class="card-content table-responsive table-full-width m-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="libro.nombre" required maxlenth="60"
+          placeholder="Nombre">
+        <label for="nombre">Nombre de Libro</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="autor" name="autor" [(ngModel)]="libro.autor" required maxlenth="60"
+          placeholder="Nombre">
+        <label for="autor">Autor del Libro</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="editorial" name="editorial" [(ngModel)]="libro.editorial" required
+          maxlenth="60" placeholder="Nombre">
+        <label for="editorial">Editorial</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="anio" name="anio" [(ngModel)]="libro.anio" required placeholder=1999>
+        <label for="anio">Año de publicación</label>
+      </div>
+
+      <div class="mb-3">
+        <label class="mx-3">¿Leido? </label>
+        <input class="mx-3" type="radio" id="fueLeido" name="fueLeido" [(ngModel)]="libro.fueLeido" ng-control="fueLeido"
+          value="true">Si
+        <input class="mx-3" type="radio" id="fueLeido" name="fueLeido" [(ngModel)]="libro.fueLeido" ng-control="fueLeido"
+          value="false">No
+      </div>
+
+      <div class="form-floating">
+        <select class="form-select" id="formato" name="formato" aria-label="Floating label select example"
+          [(ngModel)]="libro.formato">
+          <option value="DIGITAL">DIGITAL</option>
+          <option value="PAPEL">PAPEL</option>
+          <option value="OTRO">OTRO</option>
+        </select>
+        <label for="formato">Formato</label>
+      </div>
+    </div>
+    <br>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-3">
+      <button class="btn btn-primary me-md-2" type="submit">Guardar</button>
+      <a class="btn btn-danger" routerLink="/">Volver</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="card m-5">
+  <div class="card-header card-header-warning">
+    <h2 class="card-title text-center titulo">Mi Biblioteca</h2>
+    <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end m-3">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/nuevo"><i class="fa fa-plus"></i> Agregar
+      Libro</button>
+  </div>
+  <div class="card-content table-responsive table-full-width m-3">
+    <table class="table table-hover">
+      <tr class="text-danger">
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">Nombre</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">Año de Publicación</th>
+        <th scope="col">¿Fue Leido?</th>
+        <th scope="col">Formato</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      <tbody *ngFor="let libro of libros">
+        <tr>
+          <!-- <td>{{ libro.nombre }}</td> -->
+          <td>{{ libro.nombre }}</td>
+          <td>{{ libro.autor }}</td>
+          <td>{{ libro.editorial }}</td>
+          <td>{{ libro.anio }}</td>
+          <td *ngIf="libro.fueLeido">Si</td>
+          <td *ngIf="!libro.fueLeido">No</td>
+          <td>{{ libro.formato }}</td>
+          <td>
+            <div class="justify-content-end">
+              <button class="btn btn-success btn-sm me-2" type="button" routerLink="/editar/{{libro.id}}">
+                <i class="fa fa-edit"></i> Editar
+              </button>
+              <button class="btn btn-danger btn-sm" type="button" (click)="borrar(libro.id)">
+                <i class="fa fa-trash"></i> Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
