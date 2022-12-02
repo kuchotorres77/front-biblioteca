@@ -1,30 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Libro } from '../../model/libro';
-import { LibroService } from '../../services/libro.service';
+import { Component } from '@angular/core';
+import { Gasto } from '../../model/gasto';
+import { GastoService } from '../../services/gasto.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-libro',
-  templateUrl: './libro.component.html',
-  styleUrls: ['./libro.component.css'],
+  selector: 'app-gasto',
+  templateUrl: './gasto.component.html',
+  styleUrls: ['./gasto.component.css']
 })
-export class LibroComponent implements OnInit {
-  libros: Libro[] = [];
-  constructor(private libroservicio: LibroService) { }
+export class GastoComponent {
+  gastos: Gasto[] = [];
+  constructor(private gastoservicio: GastoService) { }
 
   ngOnInit(): void {
-    this.cargarLibros();
+    this.cargarGastos();
   }
-  cargarLibros(): void {
-    //this.LIBROSERVICIO.LIST().subscribe(data => {this.libros = data;})  }
-    this.libroservicio.list().subscribe((data) => {
-      this.libros = data;
+  cargarGastos(): void {
+    this.gastoservicio.list().subscribe((data) => {
+      this.gastos = data;
     });
   }
 
   borrar(id?: number) {
     Swal.fire({
-      title: 'Desea eliminar el libro?',
+      title: 'Desea eliminar gasto?',
       text: '¡No podrás revertir esto!',
       icon: 'warning',
       showCancelButton: true,
@@ -35,14 +34,14 @@ export class LibroComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         if (id != undefined) {
-          this.libroservicio.delete(id).subscribe({
+          this.gastoservicio.delete(id).subscribe({
             next: (data) => {
               Swal.fire(
                 'Eliminado!',
-                'El libro ha sido eliminado correctamente.',
+                'Gasto eliminado correctamente.',
                 'success'
               );
-              this.cargarLibros();
+              this.cargarGastos();
             },
             error: (err) => {
               Swal.fire('Error!', 'No se pudo realizar la acción.', 'error');

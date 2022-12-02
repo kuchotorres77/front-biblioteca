@@ -1,0 +1,41 @@
+<div class="card m-5">
+    <div class="card-header card-header-warning">
+      <h2 class="card-title text-center titulo">Mis Gastos</h2>
+      <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-3">
+      <button class="btn btn-primary me-md-2" type="button" routerLink="/gasto/nuevo"><i class="fa fa-plus"></i> Nuevo Gasto</button>
+      <button class="btn btn-success me-md-2" type="button" routerLink="/"><i class="fa fa-home"></i> Home</button>
+    </div>
+    <div class="card-content table-responsive table-full-width m-3">
+      <table class="table table-hover">
+        <tr class="text-danger">
+          <th scope="col">monto</th>
+          <th scope="col">cuenta</th>
+          <th scope="col">categoria</th>
+          <th scope="col">detalle</th>
+          <th scope="col">fecha</th>
+          <th scope="col">Acciones</th>
+        </tr>
+        <tbody *ngFor="let gasto of gastos">
+          <tr>
+            <td>{{ gasto.monto }}</td>
+            <td>{{ gasto.cuenta }}</td>
+            <td>{{ gasto.categoria }}</td>
+            <td>{{ gasto.detalle }}</td>
+            <td>{{ gasto.fecha }}</td>
+            <td>
+              <div class="justify-content-end">
+                <button class="btn btn-success btn-sm me-2" type="button" routerLink="/gasto/editar/{{gasto.id}}">
+                  <i class="fa fa-edit"></i> Editar
+                </button>
+                <button class="btn btn-danger btn-sm" type="button" (click)="borrar(gasto.id)">
+                  <i class="fa fa-trash"></i> Eliminar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -40,11 +40,11 @@ export class AddLibroComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
         });
-        this.router.navigate(['']);
+        this.router.navigate(['biblioteca']);
       },
       error: (err) => {
         Swal.fire('Error!', 'No se pudo realizar la acción.', 'error');
-        this.router.navigate(['/nuevo']);
+        this.router.navigate(['nuevo']);
       },
     });
   }

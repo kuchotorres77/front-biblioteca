@@ -3,3 +3,6 @@ body {
   /* background-image: url("https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1600"); */
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.493), rgba(122, 122, 122, 0.144)), url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1600')
 }
+.titulo{
+  text-transform: uppercase;
+}

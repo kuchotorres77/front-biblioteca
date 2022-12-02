@@ -1,0 +1,65 @@
+<div class="card m-5">
+    <div class="card-header card-header-warning">
+        <h2 class="card-title text-center titulo">Nuevo Gasto</h2>
+    </div>
+    <form (ngSubmit)="onCreate()" #f="ngForm">
+        <div class="card-content table-responsive table-full-width m-3">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="monto" name="monto" [(ngModel)]="monto" required
+                    maxlenth="60" placeholder="Monto">
+                <label for="monto">Monto</label>
+            </div>
+
+            <div class="form-floating my-2">
+                <select class="form-select" id="cuenta" name="cuenta" aria-label="Floating label select example"
+                    [(ngModel)]="cuenta">
+                    <option value="EFECTIVO">EFECTIVO</option>
+                    <option value="TARJETA DE CREDITO">TARJETA DE CREDITO</option>
+                    <option value="AHORRO">AHORRO</option>
+                    <option value="OTRO">OTRO</option>
+                </select>
+                <label for="cuenta">Tipo de Cuenta</label>
+            </div>
+
+
+            <div class="form-floating my-2">
+                <select class="form-select" id="categoria" name="categoria" aria-label="Floating label select example"
+                    [(ngModel)]="categoria">
+                    <option value="COMIDA">COMIDA</option>
+                    <option value="BEBIDA">BEBIDA</option>
+                    <option value="COMBUSTIBLE">COMBUSTIBLE</option>
+                    <option value="CINE">CINE</option>
+                    <option value="DEPORTE">DEPORTE</option>
+                    <option value="DIVERSION">DIVERSIÓN</option>
+                    <option value="MASCOTA">MASCOTA</option>
+                    <option value="MERCANCIA">MERCANCIA</option>
+                    <option value="PERSONALES">PERSONALES</option>
+                    <option value="RESTAURANTE">RESTAURANTE</option>
+                    <option value="ROPA">ROPA</option>
+                    <option value="TRABAJO">TRABAJO</option>
+                    <option value="TRANSPORTE">TRANSPORTE</option>
+                    <option value="SALUD">SALUD</option>
+                </select>
+                <label for="categoria">Tipo de Categoria</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="detalle" name="detalle" [(ngModel)]="detalle" required
+                    maxlenth="60" placeholder="Detalle">
+                <label for="detalle">Detalle del Gasto</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="fecha" required
+                    placeholder='10-09-1999'>
+                <label for="fecha">Fecha</label>
+            </div>
+
+        </div>
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end m-3">
+            <button class="btn btn-primary me-md-2" type="submit">Guardar</button>
+            <a class="btn btn-danger" routerLink="/gastos">Volver</a>
+        </div>
+    </form>
+</div>
